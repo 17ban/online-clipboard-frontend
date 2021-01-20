@@ -3,26 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip Board</title>
+  <title>Online Clipboard</title>
 </head>
 <body>
   <div id="main-view">
-    <div id="main-container">
-      <h1 id="site-title">Clip Board</h1>
+    <div id="title-container">
+      <h1 id="site-title">Online Clipboard</h1>
+    </div>
+
+    <div id="app-container">
       <div id="key-input-wrapper">
         <span>提取码</span>
-        <textarea id="key-input" cols="12" rows="1" spellcheck="false"></textarea>
+        <input id="key-input" type="text" spellcheck="false"></input>
       </div>
       <div id="text-input-wrapper">
         <span>文本内容</span>
-        <textarea id="text-input" cols="26" rows="12" spellcheck="false"></textarea>
+        <textarea id="text-input" cols="30" rows="12" spellcheck="false"></textarea>
       </div>
       <div id="btns-wrapper">
-        <button id="post-btn" class="btn">存</button>
-        <button id="get-btn" class="btn">取</button>
-        <button id="status-btn" class="btn">状态</button>
+        <button id="post-btn" class="btn">存入</button>
+        <button id="copy-key-btn" class="btn">复制提取码</button>
+        <br>
+        <button id="get-btn" class="btn">取出</button>
+        <button id="copy-text-btn" class="btn">复制文本</button>
       </div>
     </div>
+
+    <div id="help-container">
+      <div class="h2-lable">
+        <h2>说明</h2>
+        <hr color="grey" size="1" noshade>
+      </div>
+      <h3>存入</h3>
+      <p>
+        在第二个文本框中输入你想要分享的文本，然后点击<span class="text-highlight">存入</span>按钮。
+      </p>
+      <p>
+        你的文本会被暂存在本站的服务器，并在第一个输入框中生成<span class="text-highlight">提取码</span>。
+      </p>
+      <p>
+        使用其他设备访问本站，并使用<span class="text-highlight">提取码</span>来取出你刚才分享的文本。
+      </p>
+      <br>
+      <h3>取出</h3>
+      <p>
+        在第一个输入框中输入<span class="text-highlight">提取码</span>，然后点击<span class="text-highlight">取出</span>按钮。
+      </p>
+      <p>
+        如果<span class="text-highlight">提取码</span>有效，则其对应的文本将会出现在第二个文本框中。
+      </p>
+      <br>
+      <h3>销毁</h3>
+      <p>
+        你所存入的文本会在<span class="text-highlight">10分钟</span>之后被销毁，其对应的<span class="text-highlight">提取码</span>也会同时失效。
+      </p>
+      <br>
+      <h3>限制</h3>
+      <p>每条存入的文本不能超过<span class="text-highlight">1万个</span>字符。超过字符数量限制的文本会被拒绝存入。</p>
+      <p>本站最多只能同时暂存<span class="text-highlight">10万条</span>文本。当文本数量达到此限制时会拒绝新文本的存入，等待旧文本失效之后才能再存入新的文本。
+    </div>
+
+    <!-- <div id="api-container">
+      <div class="h2-lable">
+        <h2>API 开放</h2>
+        <hr color="grey" size="1" noshade>
+      </div>
+    </div> -->
   </div>
   <script type="module" src="./src/main.ts"></script>
 </body>
