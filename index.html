@@ -7,19 +7,21 @@
 </head>
 <body>
   <div id="main-view">
-    <h1>Clip Board</h1>
-    <div id="key-input-wrapper">
-      <span>提取码</span>
-      <textarea id="key-input" cols="8" rows="1" spellcheck="false"></textarea>
-    </div>
-    <div id="text-input-wrapper">
-      <span>文本内容</span>
-      <textarea id="text-input" cols="32" rows="12" spellcheck="false"></textarea>
-    </div>
-    <div id="btns-wrapper">
-      <button id="post-btn" class="btn">存</button>
-      <button id="get-btn" class="btn">取</button>
-      <button id="status-btn" class="btn">状态</button>
+    <div id="main-container">
+      <h1 id="site-title">Clip Board</h1>
+      <div id="key-input-wrapper">
+        <span>提取码</span>
+        <textarea id="key-input" cols="12" rows="1" spellcheck="false"></textarea>
+      </div>
+      <div id="text-input-wrapper">
+        <span>文本内容</span>
+        <textarea id="text-input" cols="26" rows="12" spellcheck="false"></textarea>
+      </div>
+      <div id="btns-wrapper">
+        <button id="post-btn" class="btn">存</button>
+        <button id="get-btn" class="btn">取</button>
+        <button id="status-btn" class="btn">状态</button>
+      </div>
     </div>
   </div>
   <script type="module" src="./src/main.ts"></script>
