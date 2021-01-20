@@ -20,13 +20,13 @@ export interface StatusTextResObj extends ResObj {
 
 
 export async function getText(key: string) {
-  let res = await fetch(`/text?key=${key}`)
+  let res = await fetch(`/api/text?key=${key}`)
   return { res, jsonPromise: <Promise<GetTextResObj>>(res.json()) }
 }
 
 
 export async function postText(text: string, timeout?: number) {
-  let res = await fetch(`/text`, {
+  let res = await fetch(`/api/text`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -41,6 +41,6 @@ export async function postText(text: string, timeout?: number) {
 
 
 export async function getStatus() {
-  let res = await fetch('/status')
+  let res = await fetch('/api/status')
   return { res, jsonPromise: <Promise<StatusTextResObj>>(res.json()) }
 }
