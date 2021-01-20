@@ -1,17 +1,17 @@
-interface ResObj{
+export interface ResObj{
   status: string
 }
 
-interface GetTextResObj extends ResObj {
+export interface GetTextResObj extends ResObj {
   text?: string
 }
 
-interface PostTextResObj extends ResObj {
+export interface PostTextResObj extends ResObj {
   key?: string,
   exp?: number
 }
 
-interface StatusTextResObj extends ResObj {
+export interface StatusTextResObj extends ResObj {
   maxTimeout: number,
   maxTextAmount: number,
   totalTextAmount: number,

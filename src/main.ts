@@ -2,18 +2,32 @@ import './style.css'
 
 import { getText, postText, getStatus } from './api'
 
-console.log('Hello, Clip Board.')
-
-async function main() {
-  let postRes = await postText('Hello, Clip Board.')
-  console.log(postRes)
-
-  if(postRes.status === 'OK') {
-    let getRes = await getText(postRes.key)
-    console.log(getRes)
-  }
-
-  let status = await getStatus()
-  console.log(status)
+function listen(
+  selectors: string,
+  type: string,
+  listener: EventListenerOrEventListenerObject,
+  options?: boolean | AddEventListenerOptions
+) {
+  document.querySelector(selectors).addEventListener(type, listener, options)
 }
-main()
+
+const keyInput = <HTMLInputElement>document.getElementById('key-input')
+const textInput = <HTMLInputElement>document.getElementById('text-input')
+
+listen('#post-btn', 'click', async () => {
+  let res = await postText(textInput.value)
+  keyInput.value = res.key
+})
+
+listen('#get-btn', 'click', async () => {
+  let key = keyInput.value
+  let res = await getText(key)
+  textInput.value = res.text
+})
+
+listen('#status-btn', 'click', async () => {
+  textInput.value = ''
+  keyInput.value = ''
+  let res = await getStatus()
+  textInput.value = JSON.stringify(res, undefined, 2)
+})
