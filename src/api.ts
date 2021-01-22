@@ -1,5 +1,6 @@
 export interface ResObj{
-  status: string
+  status: 'OK' | 'ERROR' | 'REJECT',
+  msg: string
 }
 
 export interface GetTextResObj extends ResObj {
@@ -15,7 +16,7 @@ export interface StatusTextResObj extends ResObj {
   maxTimeout: number,
   maxTextAmount: number,
   totalTextAmount: number,
-  totalTextLength: string
+  totalTextLength: number
 }
 
 
