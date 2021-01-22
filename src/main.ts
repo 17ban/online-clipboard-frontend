@@ -26,11 +26,11 @@ listen('#post-btn', 'click', async () => {
   if(res.ok) {
     keyInput.value = resJson.key
   } else {
-    alert('存入失败' + JSON.stringify({
-      status: res.status,
-      statusText: res.statusText,
-      resJson
-    }, undefined, 2))
+    alert([
+      '存入失败😢。',
+      `失败信息：${ resJson.msg }`,
+      `响应状态：${ res.status } ${ res.statusText }`
+    ].join('\n'))
   }
 })
 
@@ -46,11 +46,11 @@ listen('#get-btn', 'click', async () => {
   if(res.ok) {
     textInput.value = resJson.text
   } else {
-    alert('取出失败\n' + JSON.stringify({
-      status: res.status,
-      statusText: res.statusText,
-      resJson
-    }, undefined, 2))
+    alert([
+      '取出失败😢。',
+      `失败信息：${ resJson.msg }`,
+      `响应状态：${ res.status } ${ res.statusText }`
+    ].join('\n'))
   }
 })
 
