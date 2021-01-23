@@ -8,11 +8,17 @@ function listen(
   listener: EventListenerOrEventListenerObject,
   options?: boolean | AddEventListenerOptions
 ) {
-  document.querySelector(selectors).addEventListener(type, listener, options)
+  document
+    .querySelector(selectors)
+    .addEventListener(type, listener, options)
 }
 
-const keyInput = <HTMLInputElement>document.getElementById('key-input')
-const textInput = <HTMLInputElement>document.getElementById('text-input')
+
+
+const keyInput = 
+  <HTMLInputElement>document.getElementById('key-input')
+const textInput = 
+  <HTMLInputElement>document.getElementById('text-input')
 
 listen('#post-btn', 'click', async () => {
   let text = textInput.value
