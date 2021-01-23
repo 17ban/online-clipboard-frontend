@@ -44,7 +44,7 @@ export async function getText(key: string) {
 
 export async function postText(text: string, timeout?: number) {
   let res = await fetch(`/api/text`, {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
