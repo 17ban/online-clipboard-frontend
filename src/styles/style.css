@@ -13,7 +13,6 @@ html, body {
   }
 }
 
-
 .btn {
   margin: 4px 8px 4px 0px;
   padding: 6px;
@@ -44,9 +43,10 @@ html, body {
   padding: 0 4px;
 }
 
-.container {
+.main-container {
   width: 100%;
 }
+
 
 
 #site-title {
@@ -85,4 +85,23 @@ html, body {
 #help-container, #api-container {
   margin-top: 120px;
   width: 100%;
+}
+
+
+footer {
+  margin: 150px 0 15px 0;
+}
+.footer-container {
+  padding: 6px;
+  text-align: center;
+}
+.link-icon {
+  width: 21px;
+  height: 21px;
+}
+#link-17ban {
+  color: rgb(62, 150, 190);
+}
+#link-17ban:hover {
+  color: rgb(223, 52, 52);
 }
