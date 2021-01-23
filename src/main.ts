@@ -23,7 +23,7 @@ listen('#post-btn', 'click', async () => {
 
   let { res, jsonPromise } = await postText(text)
   let resJson = await jsonPromise
-  if(res.ok) {
+  if(res.ok && resJson.status === 'OK') {
     keyInput.value = resJson.key
   } else {
     alert([
@@ -43,7 +43,7 @@ listen('#get-btn', 'click', async () => {
 
   let { res, jsonPromise } = await getText(key)
   let resJson = await jsonPromise
-  if(res.ok) {
+  if(res.ok && resJson.status === 'OK') {
     textInput.value = resJson.text
   } else {
     alert([
