@@ -17,7 +17,7 @@ const textInput = <HTMLInputElement>document.getElementById('text-input')
 listen('#post-btn', 'click', async () => {
   let text = textInput.value
   if(text === '') {
-    textInput.value = '请在此输入你要存入的文本。'
+    textInput.value = '（请在此输入你要存入的文本）'
     return
   }
 
@@ -27,7 +27,7 @@ listen('#post-btn', 'click', async () => {
     keyInput.value = resJson.key
   } else {
     alert([
-      '存入失败😢。',
+      '存入失败😢\n',
       `失败信息：${ resJson.msg }`,
       `响应状态：${ res.status } ${ res.statusText }`
     ].join('\n'))
@@ -37,7 +37,7 @@ listen('#post-btn', 'click', async () => {
 listen('#get-btn', 'click', async () => {
   let key = keyInput.value
   if(key === '') {
-    keyInput.value = '请在此输入提取码。'
+    keyInput.value = '（请在此输入提取码）'
     return
   }
 
@@ -47,7 +47,7 @@ listen('#get-btn', 'click', async () => {
     textInput.value = resJson.text
   } else {
     alert([
-      '取出失败😢。',
+      '取出失败😢\n',
       `失败信息：${ resJson.msg }`,
       `响应状态：${ res.status } ${ res.statusText }`
     ].join('\n'))
