@@ -27,6 +27,9 @@ interface FailPostTextRes extends FailRes {
 type PostTextRes = SuccessPostTextRes | FailPostTextRes
 
 
+type DeleteTextRes = SuccessRes | FailRes
+
+
 interface GetStatusRes extends SuccessRes {
   maxTimeout: number,
   maxTextAmount: number,
@@ -41,6 +44,12 @@ export async function getText(key: string) {
   return { res, jsonPromise: <Promise<GetTextRes>>(res.json()) }
 }
 
+export async function deleteText(key: string) {
+  let res = await fetch(`/api/text?key=${key}`, {
+    method: 'DELETE'
+  })
+  return { res, jsonPromise: <Promise<DeleteTextRes>>(res.json()) }
+}
 
 export async function postText(text: string, timeout?: number) {
   let res = await fetch(`/api/text`, {

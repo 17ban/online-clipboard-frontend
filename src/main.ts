@@ -1,6 +1,6 @@
 import './styles/style.css'
 
-import { getText, postText } from './api'
+import { getText, postText, deleteText } from './api'
 
 function listen(
   selectors: string,
@@ -54,6 +54,30 @@ listen('#get-btn', 'click', async () => {
   } else {
     alert([
       '取出失败😢\n',
+      `失败信息：${ resJson.msg }`,
+      `响应状态：${ res.status } ${ res.statusText }`
+    ].join('\n'))
+  }
+})
+
+listen('#delete-btn', 'click', async () => {
+  let key = keyInput.value
+  if(key === '') {
+    keyInput.value = '（请在此输入提取码）'
+    return
+  }
+
+  let { res, jsonPromise } = await deleteText(key)
+  let resJson = await jsonPromise
+  if(res.ok && resJson.status === 'OK') {
+    keyInput.value = ''
+    textInput.value = ''
+    alert([
+      '删除成功😎',
+    ].join('\n'))
+  } else {
+    alert([
+      '删除失败😢\n',
       `失败信息：${ resJson.msg }`,
       `响应状态：${ res.status } ${ res.statusText }`
     ].join('\n'))
